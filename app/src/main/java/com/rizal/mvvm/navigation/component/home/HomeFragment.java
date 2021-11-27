@@ -21,6 +21,7 @@ import android.widget.Toast;
 
 import com.rizal.mvvm.navigation.component.R;
 import com.rizal.mvvm.navigation.component.databinding.FragmentHomeBinding;
+import com.rizal.mvvm.navigation.component.model.Kalkulator;
 
 
 public class HomeFragment extends Fragment {
@@ -74,7 +75,9 @@ public class HomeFragment extends Fragment {
 
                     NavController navController = Navigation.findNavController(view);
 
-                    HomeFragmentDirections.ActionHomeFragmentToResultFragment action = HomeFragmentDirections.actionHomeFragmentToResultFragment();
+                    Kalkulator kalkulator = new Kalkulator(viewModel.hitung(nilai1, nilai2));
+
+                    HomeFragmentDirections.ActionHomeFragmentToResultFragment action = HomeFragmentDirections.actionHomeFragmentToResultFragment(kalkulator);
                     action.setHasil(viewModel.hitung(nilai1, nilai2));
 
                     navController.navigate(action);
@@ -98,8 +101,10 @@ public class HomeFragment extends Fragment {
 
                     NavController navController = Navigation.findNavController(view);
 
-                    HomeFragmentDirections.ActionHomeFragmentToResultFragment action = HomeFragmentDirections.actionHomeFragmentToResultFragment();
+                    Kalkulator kalkulator = new Kalkulator(viewModel.hitung(nilai1, nilai2));
+                    HomeFragmentDirections.ActionHomeFragmentToResultFragment action = HomeFragmentDirections.actionHomeFragmentToResultFragment(kalkulator);
                     action.setHasil(viewModel.hitung(nilai1, nilai2));
+
 
                     navController.navigate(action);
                 } else {

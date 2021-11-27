@@ -13,6 +13,22 @@
         tools:context=".result.ResultFragment">
 
         <!-- TODO: Update blank fragment layout -->
+
+        <TextView
+            android:id="@+id/tv_hasil2"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="180dp"
+            android:layout_marginBottom="344dp"
+            android:text="Hasil"
+            android:textSize="34sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.447"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_hasil" />
+
         <TextView
             android:id="@+id/tv_hasil"
             android:layout_width="wrap_content"

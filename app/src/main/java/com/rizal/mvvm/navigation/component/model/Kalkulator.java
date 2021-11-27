@@ -1,38 +1,44 @@
 package com.rizal.mvvm.navigation.component.model;
 
-public class Kalkulator {
+import android.os.Parcel;
+import android.os.Parcelable;
 
-    private double nilai1, nilai2, hasil;
+public class Kalkulator implements Parcelable {
 
-    public Kalkulator(double nilai1, double nilai2) {
-        this.nilai1 = nilai1;
-        this.nilai2 = nilai2;
-    }
+    public float hasil;
 
-    public Kalkulator() {
-    }
-
-    public double getNilai1() {
-        return nilai1;
-    }
-
-    public void setNilai1(double nilai1) {
-        this.nilai1 = nilai1;
-    }
-
-    public double getNilai2() {
-        return nilai2;
-    }
-
-    public void setNilai2(double nilai2) {
-        this.nilai2 = nilai2;
-    }
-
-    public double getHasil() {
-        return hasil;
-    }
-
-    public void setHasil(double hasil) {
+    public Kalkulator(float hasil) {
         this.hasil = hasil;
     }
+
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeFloat(this.hasil);
+    }
+
+    public void readFromParcel(Parcel source) {
+        this.hasil = source.readFloat();
+    }
+
+    protected Kalkulator(Parcel in) {
+        this.hasil = in.readFloat();
+    }
+
+    public static final Parcelable.Creator<Kalkulator> CREATOR = new Parcelable.Creator<Kalkulator>() {
+        @Override
+        public Kalkulator createFromParcel(Parcel source) {
+            return new Kalkulator(source);
+        }
+
+        @Override
+        public Kalkulator[] newArray(int size) {
+            return new Kalkulator[size];
+        }
+    };
 }

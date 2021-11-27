@@ -27,8 +27,6 @@ public class ResultFragment extends Fragment {
 
     }
 
-
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +44,8 @@ public class ResultFragment extends Fragment {
         if (getArguments() != null){
             ResultFragmentArgs args =ResultFragmentArgs.fromBundle(getArguments());
             binding.tvHasil.setText(String.valueOf(args.getHasil()));
+
+            binding.tvHasil2.setText(String.valueOf(args.getKalkulator().hasil));
         }
 
         return binding.getRoot();
