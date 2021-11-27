@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
     app:startDestination="@id/loginFragment">
 
@@ -14,6 +15,26 @@
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.rizal.mvvm.navigation.component.menu.HomeFragment"
-        android:label="HomeFragment" />
+        android:name="com.rizal.mvvm.navigation.component.home.HomeFragment"
+        android:label="HomeFragment" >
+        <action
+            android:id="@+id/action_homeFragment_to_resultFragment"
+            app:destination="@id/resultFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/resultFragment"
+        android:name="com.rizal.mvvm.navigation.component.result.ResultFragment"
+        android:label="fragment_result"
+        tools:layout="@layout/fragment_result" >
+        <argument
+            android:name="hasil"
+            app:argType="float"
+            android:defaultValue="0" />
+        <action
+            android:id="@+id/action_result_to_home"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_result_to_login"
+            app:destination="@id/loginFragment" />
+    </fragment>
 </navigation>
